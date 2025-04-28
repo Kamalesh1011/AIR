@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Form</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .prediction-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .text-danger {
+            color: red;
+            font-size: 0.9em;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        input[type="number"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+            outline: none;
+        }
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #003d7a);
+            transform: scale(1.05);
+        }
+        .btn-info {
+            background: linear-gradient(135deg, #17a2b8, #117a8b);
+            color: white;
+        }
+        .btn-info:hover {
+            background: linear-gradient(135deg, #117a8b, #0d5c6b);
+            transform: scale(1.05);
+        }
+        hr {
+            border: 0;
+            height: 2px;
+            background: #ccc;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="prediction-form">
+        <h2>AIR QUALITY PREDICTION </h2>
+        <small class="text-danger">Please enter input in integers and floats only.</small>
+        <hr>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="T">T</label>
+                <input type="number" name="T" id="T" step="0.01" placeholder="Average Temperature (Celsius)" required>
+            </div>
+            <div class="form-group">
+                <label for="TM">TM</label>
+                <input type="number" name="TM" id="TM" step="0.01" placeholder="Maximum Temperature (Celsius)" required>
+            </div>
+            <div class="form-group">
+                <label for="Tm">Tm</label>
+                <input type="number" name="Tm" id="Tm" step="0.01" placeholder="Minimum Temperature (Celsius)" required>
+            </div>
+            <div class="form-group">
+                <label for="SLP">SLP</label>
+                <input type="number" name="SLP" id="SLP" step="0.01" placeholder="Atmospheric Pressure at Sea Level (hPa)" required>
+            </div>
+            <div class="form-group">
+                <label for="H">H</label>
+                <input type="number" name="H" id="H" step="0.01" placeholder="Average Relative Humidity (%)" required>
+            </div>
+            <div class="form-group">
+                <label for="VV">VV</label>
+                <input type="number" name="VV" id="VV" step="0.01" placeholder="Average Visibility (Km)" required>
+            </div>
+            <div class="form-group">
+                <label for="V">V</label>
+                <input type="number" name="V" id="V" step="0.01" placeholder="Average Wind Speed (Km/h)" required>
+            </div>
+            <div class="form-group">
+                <label for="VM">VM</label>
+                <input type="number" name="VM" id="VM" step="0.01" placeholder="Max Sustained Wind Speed (Km/h)" required>
+            </div>
+            <div class="form-buttons">
+                <input type="submit" class="btn btn-primary" value="Predict">
+                <input type="reset" class="btn btn-info" value="Reset">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

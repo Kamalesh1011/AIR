@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Index Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .result-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .result-container:hover {
+            transform: scale(1.05);
+        }
+        h5 {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .aqi-value {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .aqi-category {
+            font-size: 22px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        .good { background: #00e400; color: white; }
+        .moderate { background: #ffff00; color: black; }
+        .sensitive { background: #ff7e00; color: white; }
+        .unhealthy { background: #ff0000; color: white; }
+        .very-unhealthy { background: #8f3f97; color: white; }
+        .hazardous { background: #7e0023; color: white; }
+        .btn-info {
+            background: linear-gradient(135deg, #17a2b8, #117a8b);
+            color: white;
+            font-size: 18px;
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-info:hover {
+            background: linear-gradient(135deg, #117a8b, #0d5c6b);
+            transform: scale(1.05);
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h5>Air Quality Index Prediction</h5>
+        <p class="aqi-value">Predicted AQI: <strong>{{ aqi_value }}</strong></p>
+        <div class="aqi-category {{ category_class }}">
+            {{ category_text }}
+        </div>
+        <div class="btn-container">
+            <form action="/">
+                <input class="btn btn-info" type="submit" value="Make Another Prediction">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
